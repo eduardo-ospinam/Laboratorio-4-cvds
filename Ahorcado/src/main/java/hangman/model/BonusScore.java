@@ -2,7 +2,10 @@ package hangman.model;
 
 public class BonusScore implements GameScore{
 	
+	private int puntaje;
+	
 	public BonusScore() {
+		this.puntaje = 0;
 	}
 	
 	/**
@@ -13,8 +16,18 @@ public class BonusScore implements GameScore{
 		@Override
 		@throws El score final es menor que 0;
 	**/
-	public int calculateScore(int correctCount, int incorrectCount) {
-		return 0;
+	public int calculateScore(int correctCount, int incorrectCount) throws exceptionModel{
+		if(correctCount < 0 || incorrectCount < 0) {
+			throw new exceptionModel(exceptionModel.INCORRECT_PARAM);
+		}
+		
+		this.puntaje += (correctCount*10); 
+		this.puntaje -= (incorrectCount*5);
+		
+		if(this.puntaje < 0) {
+			this.puntaje = 0;
+		}
+		return puntaje;
 	}
 
 }

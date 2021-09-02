@@ -36,62 +36,63 @@ public class GameScoreTest {
 	 private PowerBonusScore powerBonusScore = new PowerBonusScore();
 	 
 	@Test
-	public void testOriginalScoreNoBonificacionLetraCorrecta() { 
+	public void testOriginalScoreNoBonificacionLetraCorrecta() throws exceptionModel { 
 		int scoreOriginal = orignalScore.calculateScore(2, 0);
 		Assert.assertEquals(100,scoreOriginal);
 	}
 	
+
 	@Test
-	public void testOriginalScorePenalizacionLetraIncorrecta() { 
+	public void testOriginalScorePenalizacionLetraIncorrecta() throws exceptionModel{ 
 		int scoreOriginal = orignalScore.calculateScore(0, 2);
-		Assert.assertEquals(100,scoreOriginal);
+		Assert.assertEquals(80,scoreOriginal);
 	}
 	
 	@Test
-	public void testOriginalScoreFronteraPuntajeCero(){
-		int scoreOriginal = orignalScore.calculateScore(0, 100);
-		Assert.assertEquals(100,scoreOriginal);
+	public void testOriginalScoreFronteraPuntajeCero() throws exceptionModel{
+		int scoreOriginal = orignalScore.calculateScore(0, 100) ;
+		Assert.assertEquals(0,scoreOriginal);
+	} 
+	
+	@Test
+	public void testBonusScoreBonificacionLetraCorrecta() throws exceptionModel{
+		int scoreBonus = bonusScore.calculateScore(4, 0);
+		Assert.assertEquals(40,scoreBonus);
 	}
 	
 	@Test
-	public void testBonusScoreBonificacionLetraCorrecta(){
-		int scoreBonus = bonusScore.calculateScore(2, 0);
-		Assert.assertEquals(0,scoreBonus);
-	}
-	
-	@Test
-	public void testBonusScorePenalizacionLetraIncorrecta(){
+	public void testBonusScorePenalizacionLetraIncorrecta() throws exceptionModel{
 		int scoreBonus = bonusScore.calculateScore(0, 3);
 		Assert.assertEquals(0,scoreBonus);
 	}
 	
 	@Test
-	public void testBonusScoreFronteraPuntajeCero(){
+	public void testBonusScoreFronteraPuntajeCero() throws exceptionModel{
 		int scoreBonus = bonusScore.calculateScore(0, 100);
 		Assert.assertEquals(0,scoreBonus);
+	} 
+	
+	@Test
+	public void testPowerBonusScoreBonificacionLetraCorrecta() throws exceptionModel{
+		int scoreBonus = powerBonusScore.calculateScore(3, 0);
+		Assert.assertEquals(155,scoreBonus);
 	}
 	
 	@Test
-	public void testPowerBonusScoreBonificacionLetraCorrecta(){
-		int scoreBonus = bonusScore.calculateScore(2, 0);
+	public void testPowerBonusScorePenalizacionLetraIncorrecta() throws exceptionModel{
+		int scoreBonus = powerBonusScore.calculateScore(0, 2);
 		Assert.assertEquals(0,scoreBonus);
 	}
 	
 	@Test
-	public void testPowerBonusScorePenalizacionLetraIncorrecta(){
-		int scoreBonus = bonusScore.calculateScore(0, 2);
+	public void testPowerBonusScoreFronteraPuntajeCero() throws exceptionModel{
+		int scoreBonus = powerBonusScore.calculateScore(0, 100);
 		Assert.assertEquals(0,scoreBonus);
 	}
 	
 	@Test
-	public void testPowerBonusScoreFronteraPuntajeCero(){
-		int scoreBonus = bonusScore.calculateScore(0, 100);
-		Assert.assertEquals(0,scoreBonus);
-	}
-	
-	@Test
-	public void testPowerBonusScoreFronteraPuntajeQuinientos(){
-		int scoreBonus = bonusScore.calculateScore(100, 0);
-		Assert.assertEquals(0,scoreBonus);
+	public void testPowerBonusScoreFronteraPuntajeQuinientos() throws exceptionModel{
+		int scoreBonus = powerBonusScore.calculateScore(4, 0);
+		Assert.assertEquals(500,scoreBonus);
 	}
 }

@@ -2,8 +2,10 @@ package hangman.model;
 
 public class PowerBonusScore implements GameScore{
 	
+	private int puntaje;
+	
 	public PowerBonusScore() {
-		
+		this.puntaje = 0;
 	}
 	
 	
@@ -15,8 +17,23 @@ public class PowerBonusScore implements GameScore{
 		@Override
 		@throws El score final es menor que 0;
 	**/
-	public int calculateScore(int correctCount, int incorrectCount) {
-		return 0;
+	public int calculateScore(int correctCount, int incorrectCount) throws exceptionModel{
+		if(correctCount < 0 || incorrectCount < 0) {
+			throw new exceptionModel(exceptionModel.INCORRECT_PARAM);
+		}
+		 
+        for(int i=0; i<correctCount;i++){
+        	this.puntaje += Math.pow(5,i+1);
+        }
+		this.puntaje -= (incorrectCount*8);
+		
+		if(this.puntaje < 0) {
+			this.puntaje = 0;
+		}
+		else if(this.puntaje > 500) {
+			this.puntaje = 500;
+		}
+		return puntaje;
 	}
 
 }
