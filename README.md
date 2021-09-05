@@ -21,3 +21,10 @@
 ![](https://i.postimg.cc/TYJF3Wgb/lab46.jpg)
 ![](https://i.postimg.cc/XY2PwS27/lab47.jpg)
 ![](https://i.postimg.cc/XvpzLHhK/lab48.jpg)
+
+### Inyectando dependencias:
+![](https://i.postimg.cc/1tYqc9VH/lab49.jpg)
+![](https://i.postimg.cc/vHnVfwYr/lab410.jpg)
+![](https://i.postimg.cc/WzkhG0vN/lab411.jpg)
+![](https://i.postimg.cc/wjdwnd02/lab412.jpg)
+![](https://i.postimg.cc/kGbyhjSL/lab413.jpg)
